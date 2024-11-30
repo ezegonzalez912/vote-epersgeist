@@ -30,11 +30,10 @@ body {
   min-height: 100vh;
 }
 
-input {
-  padding: 12px 30px;
+input, select {
+  padding: 12px;
   border: none;
   border-radius: 10px;
-  margin: 10px;
 }
 
 h1 {
