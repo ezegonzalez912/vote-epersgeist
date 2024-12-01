@@ -98,9 +98,9 @@ function App() {
     return (
       <div>
         <h1>👻</h1>
-        <h2>¡{name}, gracias por participar! Esperemos lo hayas disfrutado.</h2>
+        <h2>¡{name}, gracias por participar! Esperamos que lo hayas disfrutado.</h2>
         <p>¡Contamos con tu voto al final!</p>
-        <p>Att: Persistir a lo gradle</p>
+        <p>Atentamente: Persistir a lo Gradle</p>
       </div>
     );
   }
@@ -110,8 +110,8 @@ function App() {
       <div className="initial-page">
         <h1>¡Hola!</h1>
         <p>
-          Somos <b>Persistir a lo gradle</b>, ingresa tu nombre y ayúdanos a
-          decidir él final.
+          Somos <b>Persistir a lo Gradle</b>. Ingresa tu nombre y ayúdanos a
+          decidir el final.
         </p>
         <form onSubmit={handleSubmit}>
           <input id="name" placeholder="Nombre" />
@@ -122,10 +122,10 @@ function App() {
             <option value="c">Los Ghost Bugsters 🔥</option>
             <option value="d">MancosDB ⌛</option>
             <option value="e">NullPointer Kings ⏩</option>
-            <option value="f">Los Angeles de Guido ☁️</option>
+            <option value="f">Los Ángeles de Guido ☁️</option>
             <option value="g">Tamos Redis 🫂</option>
           </select>
-          <button type="onSubmit">Listo!</button>
+          <button type="onSubmit">¡Listo!</button>
         </form>
       </div>
     );
@@ -140,7 +140,7 @@ function App() {
       <h1 className="title">{name}, elige una opción 👻</h1>
       <h3>Pregunta {node} de (?)</h3>
       <p>
-        Espere las indicaciones para realizar cualquier accion en la aplicacion.
+        Aguarda las indicaciones para realizar cualquier acción en la aplicación.
       </p>
       <div className="buttons">
         <button
@@ -225,7 +225,7 @@ function App() {
             className="view_more"
             onClick={() => setViewMore((prev) => !prev)}
           >
-            Ver {viewMore ? "menos" : "mas"}
+            Ver {viewMore ? "menos" : "más"}
           </button>
         )}
         {vote && (
@@ -241,10 +241,10 @@ function App() {
       )}
       {node > 2 && (
         <button className="back-btn" onClick={prevQuestion}>
-          Volver atras ↩
+          Volver atrás ↩
         </button>
       )}
-      <p className="read-the-docs">Desarrollado por Persistir a lo gradle</p>
+      <p className="read-the-docs">Desarrollado por Persistir a lo Gradle</p>
     </>
   );
 }

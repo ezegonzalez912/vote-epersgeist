@@ -13,7 +13,7 @@ export const Evaluate = ({ saved }) => {
     <div className="container">
       <div className={`${saved ? "circle saved" : "circle kill"}`}>
         <p className="text-saved">
-          {saved ? "Te salvaste" : "Te sacrificaron!!!"}
+          {saved ? "Te salvaste!!" : "Te sacrificaron!!!"}
         </p>
       </div>
     </div>
