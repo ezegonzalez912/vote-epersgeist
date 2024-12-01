@@ -82,11 +82,21 @@
 }
 
 .saved {
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,66,1) 35%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 121, 66, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
 .kill {
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(189,15,15,1) 35%, rgba(255,0,71,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(189, 15, 15, 1) 35%,
+    rgba(255, 0, 71, 1) 100%
+  );
 }
 
 .text-saved {
@@ -107,4 +117,32 @@
     height: 200vmax;
     transform: translate(-50%, -50%);
   }
+}
+
+.view_more {
+  background-color: rgb(66, 69, 69);
+}
+
+.noclick {
+  background-color: rgba(82, 86, 81, 0.448);
+}
+
+.click {
+  border: 2px solid white;
+}
+
+.back-btn {
+  border-radius: 50px;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  background-color: #2e2e2e;
+}
+
+.kill-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  border-radius: 50px;
+  background-color: #2e2e2e;
 }

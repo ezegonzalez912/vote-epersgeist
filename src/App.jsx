@@ -16,6 +16,7 @@ function App() {
   const [node, setNode] = useState(1);
   const [viewMore, setViewMore] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [clicks, setClicks] = useState(0);
 
   const { name } = user || {};
 
@@ -32,8 +33,14 @@ function App() {
   };
 
   const handleEvaluate = async () => {
+    if (clicks <= 1) {
+      setClicks((prev) => prev + 1);
+      return;
+    }
+
+    setClicks(100);
+
     const { data } = await supabase.from("votes").select();
-    console.log(data);
 
     const result = Object.values(
       data.reduce((acc, { node, vote }) => {
@@ -50,15 +57,19 @@ function App() {
       return { node, winner };
     });
 
-    console.log(result, user);
-
     if (result) {
       const { winner } = result[result.length - 1];
       setSaved({ status: winner !== user.groupId });
       setTimeout(() => {
-        setVote(null);
-        setNode((prev) => prev + 1);
-        setSaved(null);
+        if (winner !== user.groupId) {
+          setVote(null);
+          setNode((prev) => prev + 1);
+          setSaved(null);
+        } else {
+          setVote(null);
+          setNode(6);
+          setSaved(null);
+        }
       }, 15000);
     }
   };
@@ -66,6 +77,13 @@ function App() {
   const nextQuestion = () => {
     setVote(null);
     setNode((prev) => prev + 1);
+    setClicks(0);
+  };
+
+  const prevQuestion = () => {
+    setVote(null);
+    setNode((prev) => prev - 1);
+    setClicks(0);
   };
 
   const handleSubmit = (e) => {
@@ -92,12 +110,13 @@ function App() {
       <div className="initial-page">
         <h1>¡Hola!</h1>
         <p>
-          Somos persistir a lo gradle, ingresa tu nombre y ayúdanos a decidir él
-          final
+          Somos <b>Persistir a lo gradle</b>, ingresa tu nombre y ayúdanos a
+          decidir él final.
         </p>
         <form onSubmit={handleSubmit}>
           <input id="name" placeholder="Nombre" />
           <select id="group">
+            <option value="">Selecciona tu equipo</option>
             <option value="a">Profes 👨‍🏫</option>
             <option value="b">The EPERSstrikes Back 💫</option>
             <option value="c">Los Ghost Bugsters 🔥</option>
@@ -119,22 +138,26 @@ function App() {
   return (
     <>
       <h1 className="title">{name}, elige una opción 👻</h1>
+      <h3>Pregunta {node} de (?)</h3>
       <p>
-        Nota: Vota solo por las opciones disponibles en el proyector y solo
-        cuando demos el GO!
+        Espere las indicaciones para realizar cualquier accion en la aplicacion.
       </p>
       <div className="buttons">
         <button
           onClick={() => handleVote("A")}
           disabled={vote}
-          className="button-vote"
+          className={
+            vote && vote !== "A" ? "noclick button-vote" : "click button-vote"
+          }
         >
           Opción A
         </button>
         <button
           onClick={() => handleVote("B")}
           disabled={vote}
-          className="button-vote"
+          className={
+            vote && vote !== "B" ? "noclick button-vote" : "click button-vote"
+          }
         >
           Opción B
         </button>
@@ -143,50 +166,84 @@ function App() {
             <button
               onClick={() => handleVote("C")}
               disabled={vote}
-              className="button-vote"
+              className={
+                vote && vote !== "C"
+                  ? "noclick button-vote"
+                  : "click button-vote"
+              }
             >
               Opción C
             </button>
             <button
               onClick={() => handleVote("D")}
               disabled={vote}
-              className="button-vote"
+              className={
+                vote && vote !== "D"
+                  ? "noclick button-vote"
+                  : "click button-vote"
+              }
             >
               Opción D
             </button>
             <button
               onClick={() => handleVote("E")}
               disabled={vote}
-              className="button-vote"
+              className={
+                vote && vote !== "E"
+                  ? "noclick button-vote"
+                  : "click button-vote"
+              }
             >
               Opción E
             </button>
             <button
               onClick={() => handleVote("F")}
               disabled={vote}
-              className="button-vote"
+              className={
+                vote && vote !== "F"
+                  ? "noclick button-vote"
+                  : "click button-vote"
+              }
             >
               Opción F
             </button>
             <button
               onClick={() => handleVote("G")}
               disabled={vote}
-              className="button-vote"
+              className={
+                vote && vote !== "G"
+                  ? "noclick button-vote"
+                  : "click button-vote"
+              }
             >
               Opción G
             </button>
           </>
         )}
-        <button onClick={() => setViewMore((prev) => !prev)}>
-          {viewMore ? "Menos" : "Mas"} opciones...
-        </button>
+        {!vote && (
+          <button
+            className="view_more"
+            onClick={() => setViewMore((prev) => !prev)}
+          >
+            Ver {viewMore ? "menos" : "mas"}
+          </button>
+        )}
         {vote && (
           <section className="next-question">
-            <button onClick={handleEvaluate}>? ? ? ? ?</button>
             <button onClick={nextQuestion}>Siguiente pregunta</button>
           </section>
         )}
       </div>
+      {clicks !== 100 && node > 1 && (
+        <button className="kill-btn" onClick={handleEvaluate}>
+          ¿Estoy bien?
+        </button>
+      )}
+      {node > 2 && (
+        <button className="back-btn" onClick={prevQuestion}>
+          Volver atras ↩
+        </button>
+      )}
       <p className="read-the-docs">Desarrollado por Persistir a lo gradle</p>
     </>
   );

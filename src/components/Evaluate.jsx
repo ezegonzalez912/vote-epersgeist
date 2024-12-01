@@ -7,7 +7,7 @@ export const Evaluate = ({ saved }) => {
     setTimeout(() => setFinish(true), 5000);
   }, []);
 
-  if (!finish) return <p>Analizando resultados</p>;
+  if (!finish) return <p>Analizando resultados...</p>;
 
   return (
     <div className="container">
