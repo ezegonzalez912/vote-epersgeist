@@ -48,8 +48,7 @@ export const Home = () => {
     <div>
       <h1>¿Que car@j1 es esto?</h1>
       <p>
-        Estás a punto de ser parte de algo <b>ÉPICO</b>. ¿estás listo para decidir el destino de los
-        grupos?
+        Estás a punto de ser parte de algo <b>ÉPICO</b>. ¿estás listo para decidir el destino de epersgeist?
       </p>
       <h2>Cuenta Regresiva</h2>
       <p>
