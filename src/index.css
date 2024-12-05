@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: white;
   position: relative;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -11,8 +11,8 @@
   -moz-osx-font-smoothing: grayscale;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  background-image: url("https://img.freepik.com/foto-gratis/siluetas-manos-aterradoras-estudio_23-2150710107.jpg");
+  background-position: left;
+  background-image: url("../public/dibu.png");
 }
 
 :root::after {

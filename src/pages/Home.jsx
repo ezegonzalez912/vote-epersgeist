@@ -46,9 +46,10 @@ export const Home = () => {
 
   return (
     <div>
-      <h1>¿Que <span className="breathing-text">car@j1</span> es esto?</h1>
+      <h1>No te comas el <span className="breathing-text">VERSO</span>!</h1>
       <p style={{ fontSize: 18, margin: 0 }}>
-        Estás a punto de ser parte de algo <b>ÉPICO</b>. ¿estás listo para decidir el destino de Epersgeist?
+        La <b>VERDADADERA</b> presentación es sobre kafka.<br />
+        <b>Kafka presentaciones en serio.</b> ¿Estás listo?
       </p>
       <h3>Cuenta Regresiva</h3>
       <p style={{ fontSize: 25, margin: 0 }}>
