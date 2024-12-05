@@ -113,8 +113,8 @@ function Vote() {
           decidir el final.
         </p>
         <form onSubmit={handleSubmit}>
-          <input id="name" placeholder="Nombre" />
-          <select id="group">
+          <input id="name" placeholder="Nombre" required/>
+          <select id="group" required>
             <option value="">Selecciona tu equipo</option>
             <option value="a">Profes 👨‍🏫</option>
             <option value="b">The EPERSstrikes Back 💫</option>

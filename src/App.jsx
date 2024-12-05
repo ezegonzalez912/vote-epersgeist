@@ -1,18 +1,41 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Vote from "./pages/Vote";
 import { Home } from "./pages/Home";
+import { useEffect, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+const api_key = import.meta.env.VITE_SUPABASE_API_KEY;
+
+const supabase = createClient(
+  "https://gmkiwiyneprikhwhtmtz.supabase.co",
+  api_key
+);
 
 function App() {
-  return (
-    <Router>
-        <Routes>
-          <Route path="vote-epersgeist/" element={<Home />} />
-          <Route path="vote-epersgeist/vote" element={<Vote />} />
-          <Route path="*" element={<p>No hay nada por aqui...</p>} />
-        </Routes>
-    </Router>
-  );
+  const [viewGame, setViewGame] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const { data, error } = await supabase
+      .from("game")
+      .select()
+      .eq("id", "1")
+      
+      if (error) {
+        console.error("Error fetching data:", error);
+      } else {
+        setViewGame(data[0]);
+      }
+    }
+    
+    fetchData();
+  }, []);
+  
+  if(!viewGame?.start) {
+    return <Home />
+  }
+
+  return <Vote />
 }
 
 export default App;

@@ -9,6 +9,22 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://img.freepik.com/foto-gratis/siluetas-manos-aterradoras-estudio_23-2150710107.jpg");
+}
+
+:root::after {
+  width: 100%;
+  background-color: rgb(26, 26, 28);
+  content: ".";
+  height: 100%;
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  opacity: .95;
 }
 
 a {
@@ -46,7 +62,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #10c284;
+  background-color: #580b53;
   cursor: pointer;
   color: white;
   transition: border-color 0.25s;

@@ -46,12 +46,12 @@ export const Home = () => {
 
   return (
     <div>
-      <h1>¿Que car@j1 es esto?</h1>
-      <p>
-        Estás a punto de ser parte de algo <b>ÉPICO</b>. ¿estás listo para decidir el destino de epersgeist?
+      <h1>¿Que <span className="breathing-text">car@j1</span> es esto?</h1>
+      <p style={{ fontSize: 18, margin: 0 }}>
+        Estás a punto de ser parte de algo <b>ÉPICO</b>. ¿estás listo para decidir el destino de Epersgeist?
       </p>
-      <h2>Cuenta Regresiva</h2>
-      <p>
+      <h3>Cuenta Regresiva</h3>
+      <p style={{ fontSize: 25, margin: 0 }}>
         {timeRemaining.days} días, {timeRemaining.hours} horas,{" "}
         {timeRemaining.minutes} minutos, {timeRemaining.seconds} segundos
       </p>

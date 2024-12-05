@@ -71,14 +71,16 @@
 
 .circle {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  animation: expand 2s ease-out forwards;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: .7;
+  animation: 1s expand;
 }
 
 .saved {
@@ -104,18 +106,15 @@
   color: rgb(255, 255, 255);
   font-size: 20px;
   font-weight: 600;
+  max-width: 300px;
 }
 
 @keyframes expand {
   0% {
-    width: 100px;
-    height: 100px;
-    transform: translate(-50%, -50%);
+    transform: translate(0%, -100%);
   }
   100% {
-    width: 200vmax;
-    height: 200vmax;
-    transform: translate(-50%, -50%);
+    transform: translate(0%, 0%);
   }
 }
 
@@ -145,4 +144,26 @@
   bottom: 20px;
   border-radius: 50px;
   background-color: #2e2e2e;
+}
+
+.breathing-text {
+  font-weight: bold;
+  text-align: center;
+  animation: breathe 3s infinite;
+  background: -webkit-linear-gradient(45deg, #580b65, #8e2e8f, #580b65, #8e2e8f); /* Gradiente de colores */
+  -webkit-background-clip: text; /* Aplica el gradiente solo al texto */
+  color: transparent; /* Hace el texto transparente para que se vea el gradiente */
+}
+
+/* Animación de respiro */
+@keyframes breathe {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
