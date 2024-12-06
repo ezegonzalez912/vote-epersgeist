@@ -75,10 +75,19 @@ function Vote() {
     }
   };
 
-  const nextQuestion = () => {
-    setVote(null);
-    setNode((prev) => prev + 1);
-    setClicks(0);
+  const nextQuestion = async () => {
+    const { data } = await supabase.from("game").select().eq("id", 2).single();
+    console.log(data?.question, node);
+    
+    if(data?.fin) {
+      setNode(6);
+    } 
+
+    if(data?.question > node) {
+      setVote(null);
+      setNode((prev) => prev + 1);
+      setClicks(0);
+    }
   };
 
   const prevQuestion = () => {
