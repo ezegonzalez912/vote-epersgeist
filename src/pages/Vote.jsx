@@ -77,11 +77,6 @@ function Vote() {
 
   const nextQuestion = async () => {
     const { data } = await supabase.from("game").select().eq("id", 2).single();
-    console.log(data?.question, node);
-    
-    if(data?.fin) {
-      setNode(6);
-    } 
 
     if(data?.question > node) {
       setVote(null);
@@ -108,7 +103,6 @@ function Vote() {
       </div>
     );
   }
-console.log(user);
 
   if (!user) {
     return (
