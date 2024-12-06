@@ -58,7 +58,9 @@ function Vote() {
 
     if (result) {
       const { winner } = result[result.length - 1];
+      
       setSaved({ status: winner !== user.groupId });
+      setViewMore(false);
       setTimeout(() => {
         if (winner !== user.groupId) {
           setVote(null);
@@ -103,6 +105,7 @@ function Vote() {
       </div>
     );
   }
+console.log(user);
 
   if (!user) {
     return (
@@ -116,13 +119,13 @@ function Vote() {
           <input id="name" placeholder="Nombre" required/>
           <select id="group" required>
             <option value="">Selecciona tu equipo</option>
-            <option value="a">Profes 👨‍🏫</option>
-            <option value="b">The EPERSstrikes Back 💫</option>
-            <option value="c">Los Ghost Bugsters 🔥</option>
+            <option value="a">Tamos Redis 🫂</option>
+            <option value="b">NullPointer Kings ⏩</option>
+            <option value="c">Los Ángeles de Guido ☁️</option>
             <option value="d">MancosDB ⌛</option>
-            <option value="e">NullPointer Kings ⏩</option>
-            <option value="f">Los Ángeles de Guido ☁️</option>
-            <option value="g">Tamos Redis 🫂</option>
+            <option value="e">Los Ghost Bugsters 🔥</option>
+            <option value="f">The EPERSstrikes Back 💫</option>
+            <option value="g">Profes 👨‍🏫</option>
           </select>
           <button type="onSubmit">¡Listo!</button>
         </form>
@@ -238,7 +241,7 @@ function Vote() {
           ¿Estoy bien?
         </button>
       )}
-      {node > 2 && (
+      {node > 1 && (
         <button className="back-btn" onClick={prevQuestion}>
           Volver atrás ↩
         </button>
