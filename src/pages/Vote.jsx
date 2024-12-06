@@ -90,12 +90,6 @@ function Vote() {
     }
   };
 
-  const prevQuestion = () => {
-    setVote(null);
-    setNode((prev) => prev - 1);
-    setClicks(0);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setUser({
@@ -248,11 +242,6 @@ console.log(user);
       {clicks !== 100 && node > 1 && (
         <button className="kill-btn" onClick={handleEvaluate}>
           ¿Estoy bien?
-        </button>
-      )}
-      {node > 1 && (
-        <button className="back-btn" onClick={prevQuestion}>
-          Volver atrás ↩
         </button>
       )}
       <p className="read-the-docs">Desarrollado por Persistir a lo Gradle</p>
